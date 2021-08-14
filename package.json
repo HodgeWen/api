@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "client:add": "yarn workspace @api/client add",
+    "server:add": "yarn workspace @api/server add",
     "dev:client": "yarn workspace @api/client dev",
     "dev:server": "",
     "dev": "yarn dev:client && yarn dev:server"

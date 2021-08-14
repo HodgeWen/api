@@ -1,4 +1,15 @@
 {
   "name": "@api/server",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc && node building/src/app.js"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/pino": "^6.3.11"
+  },
+  "dependencies": {
+    "fastify": "^3.20.2",
+    "pino": "^6.13.0"
+  }
 }
