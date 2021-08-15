@@ -8,8 +8,6 @@ const server = fastify({
   })
 })
 
-
-
 server.listen(2020).then(address => {
   console.log(`服务正在运行， 地址：${address}`)
 }).catch(err => {
