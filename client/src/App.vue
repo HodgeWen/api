@@ -1,15 +1,9 @@
 <template>
-  <div>
-    {{ msg }}
-  </div>
+
+  <n-button>按钮</n-button>
 </template>
 
 <script lang="ts" setup>
 
-const msg = 'hello world'
-
-const say = (word: string) => {
-
-}
 
 </script>
