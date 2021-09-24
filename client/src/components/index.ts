@@ -1,0 +1,1 @@
+export { default as MySvg} from './svg.vue'

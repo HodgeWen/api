@@ -1,9 +1,7 @@
 <template>
-
-  <n-button>按钮</n-button>
+  <MySvg />
 </template>
 
 <script lang="ts" setup>
-
-
+import { MySvg } from './components/index'
 </script>

@@ -4,6 +4,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     NButton: typeof import('naive-ui')['NButton']
+    Svg: typeof import('./src/components/svg.vue')['default']
   }
 }
 
