@@ -1,17 +1,10 @@
 import { createApp } from 'vue'
-import { darkTheme, NConfigProvider, NGlobalStyle } from 'naive-ui'
 import { router } from '@/router'
-
-import App from './App.vue'
+import { RouterView } from 'vue-router'
 
 const app = createApp({
   render() {
-    return (
-      <NConfigProvider theme={darkTheme}>
-        <App />
-        <NGlobalStyle />
-      </NConfigProvider>
-    )
+    return <RouterView />
   }
 })
 

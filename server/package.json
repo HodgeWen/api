@@ -2,14 +2,16 @@
   "name": "@api/server",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc && node building/src/app.js"
+    "build": "tsc && node building/src/app.js",
+    "i": "pnpm i"
   },
   "type": "module",
   "devDependencies": {
-    "@types/pino": "^6.3.11"
+    "@types/pino": "^7.0.5"
   },
   "dependencies": {
-    "fastify": "^3.20.2",
-    "pino": "^6.13.0"
+    "fastify": "^3.27.0",
+    "mongodb": "^4.3.1",
+    "pino": "^7.6.4"
   }
 }

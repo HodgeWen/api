@@ -3,19 +3,7 @@
   "description": "接口文档管理工具",
   "author": "whj",
   "license": "MIT",
-  "private": true,
   "type": "module",
-  "workspaces": [
-    "client",
-    "server"
-  ],
-  "scripts": {
-    "client:add": "yarn workspace @api/client add",
-    "server:add": "yarn workspace @api/server add",
-    "dev:client": "yarn workspace @api/client dev",
-    "dev:server": "",
-    "dev": "yarn dev:client && yarn dev:server"
-  },
   "devDependencies": {
     "@types/node": "^16.6.1",
     "typescript": "^4.3.5"

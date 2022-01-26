@@ -2,18 +2,14 @@ import path from 'path'
 import { defineConfig, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue' // 单文件组件支持
 import vueJsx from '@vitejs/plugin-vue-jsx' // TSX和JSX支持
-import viteComponents, { NaiveUiResolver } from 'vite-plugin-components' // 组件自动导入
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 /** 开发环境配置 */
-const serveConfig: UserConfigExport = {
-
-}
+const serveConfig: UserConfigExport = {}
 
 /** 生产环境配置 */
-const buildConfig: UserConfigExport = {
-
-}
-
+const buildConfig: UserConfigExport = {}
 
 export default defineConfig(context => {
   const { command, mode } = context
@@ -22,11 +18,8 @@ export default defineConfig(context => {
     plugins: [
       vue(),
       vueJsx(),
-      viteComponents({
-        globalComponentsDeclaration: true,
-        customComponentResolvers:[
-          NaiveUiResolver()
-        ]
+      Components({
+        resolvers: [ElementPlusResolver()]
       })
     ],
 
@@ -43,7 +36,8 @@ export default defineConfig(context => {
 
     server: {
       port: 2000,
-      open: false
+      open: false,
+      host: true
     }
   }
 
