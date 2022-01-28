@@ -2,16 +2,22 @@
   "name": "@api/server",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc && node building/src/app.js",
-    "i": "pnpm i"
+    "build": "tsc -p ./tsconfig.json",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/app.ts",
+    "init": "pnpm i"
   },
   "type": "module",
-  "devDependencies": {
-    "@types/pino": "^7.0.5"
-  },
+  "exports": "./building/src/app.js",
   "dependencies": {
+    "@sinclair/typebox": "^0.23.3",
+    "chalk": "^5.0.0",
     "fastify": "^3.27.0",
+    "fastify-plugin": "^3.0.1",
     "mongodb": "^4.3.1",
-    "pino": "^7.6.4"
+    "redis": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0"
   }
 }

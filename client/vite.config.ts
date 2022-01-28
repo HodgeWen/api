@@ -37,7 +37,14 @@ export default defineConfig(context => {
     server: {
       port: 2000,
       open: false,
-      host: true
+      host: true,
+
+      proxy: {
+        '/dev': {
+          target: 'http://localhost:2022',
+          rewrite: s => s.replace(/^\/dev/, '')
+        }
+      }
     }
   }
 
