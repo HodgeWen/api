@@ -5,6 +5,7 @@ import { hmacSHA256 } from '../../utils/crypto'
 export default createModule('/user', fa => {
   const secret = 'six six six'
 
+  // 账号注册
   fa.post<{ Body: UserBodyType }>(
     '/register',
     {
@@ -13,7 +14,7 @@ export default createModule('/user', fa => {
       }
     },
     async function (req, res) {
-      // 给密码加密
+      // 加密存储
       const user = hmacSHA256(req.body, ['password'], secret)
       const users = this.db.collection('users')
       if (await users.findOne({ account: user.account })) {
@@ -22,6 +23,7 @@ export default createModule('/user', fa => {
           code: 400,
           data: null
         })
+
         return
       }
       await users.insertOne(user)
@@ -29,6 +31,7 @@ export default createModule('/user', fa => {
     }
   )
 
+  // 登录校验
   fa.post<{ Body: UserBodyType }>(
     '/login',
     {

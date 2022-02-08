@@ -16,7 +16,9 @@ export default defineConfig(context => {
 
   const commonConfig: UserConfigExport = {
     plugins: [
-      vue(),
+      vue({
+        reactivityTransform: true
+      }),
       vueJsx(),
       Components({
         resolvers: [ElementPlusResolver()]

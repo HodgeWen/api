@@ -1,0 +1,48 @@
+$namespace: 'el';
+$element-separator: '__';
+$modifier-separator: '--';
+
+// 黄色 #FFb000
+// 蓝色 #0056ff
+$c-warning: #ffb000;
+$c-primary: #409eff;
+$c-success: #67c23a;
+$c-fail: #ff5252;
+
+@mixin flex($justify, $align: flex-start, $wrap: nowrap) {
+  display: flex;
+  justify-content: $justify;
+
+  @if $align != flex-start {
+    align-content: $align;
+    align-items: $align;
+  }
+
+  @if $wrap == wrap {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin b($block) {
+  .#{$block} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  #{& + $element-separator + $element} {
+    @content;
+  }
+}
+
+@mixin m($modifier) {
+  #{& + $modifier-separator + $modifier} {
+    @content;
+  }
+}

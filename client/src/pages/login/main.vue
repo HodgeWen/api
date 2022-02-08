@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="login-page">
     <section class="form-wrap">
+      <p class="login-title">接口文档管理系统</p>
+
       <!-- 登录 -->
       <template v-if="!registerVisible">
         <el-form :model="form" :rules="rules" ref="formRef">
           <el-form-item prop="account">
-            <el-input placeholder="账号" v-model="form.account" />
+            <el-input clearable placeholder="账号" v-model="form.account" />
           </el-form-item>
 
           <el-form-item prop="password">
@@ -39,7 +41,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ElFormContext } from 'element-plus'
 import { FormRulesMap } from 'element-plus/es/components/form/src/form.type'
 import { reactive, ref } from 'vue'
 import { login, register } from '@/apis/common'
@@ -92,5 +93,21 @@ const registerSubmit = async () => {
 .form-wrap {
   width: 300px;
   margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.login-page {
+  height: 100%;
+  padding: 1px;
+  background-image: linear-gradient(0deg,#b721ff, #21d4fd);
+}
+
+.login-title {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 0;
+  color: #666;
 }
 </style>
