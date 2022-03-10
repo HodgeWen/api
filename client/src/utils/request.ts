@@ -1,6 +1,6 @@
 import { API_BASE } from '@/env'
-import Http from './http/http'
-import { ElMessage } from 'element-plus'
+import { Http } from 'fe-dk'
+import { Notify } from 'quasar'
 
 const http = new Http({
   baseUrl: API_BASE,
@@ -12,7 +12,9 @@ const http = new Http({
   },
   after(res, reject) {
     if (res.code !== 200) {
-      ElMessage.error(res.message)
+      Notify.create({
+        message: res.data
+      })
 
       if (res.code >= 400) {
         reject()

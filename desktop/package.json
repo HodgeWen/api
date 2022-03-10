@@ -1,0 +1,16 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "building/main.js",
+  "scripts": {
+    "dev": "tsc && electron .",
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "electron": "^17.1.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

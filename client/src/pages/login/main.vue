@@ -4,44 +4,15 @@
       <p class="login-title">接口文档管理系统</p>
 
       <!-- 登录 -->
-      <template v-if="!registerVisible">
-        <el-form :model="form" :rules="rules" ref="formRef">
-          <el-form-item prop="account">
-            <el-input clearable placeholder="账号" v-model="form.account" />
-          </el-form-item>
-
-          <el-form-item prop="password">
-            <el-input placeholder="密码" v-model="form.password" type="password" />
-          </el-form-item>
-        </el-form>
-        <el-button type="text" @click="registerVisible = true">注册</el-button>
-        <el-button style="width: 100%; margin: 0" type="primary" @click="loginSubmit">登录</el-button>
-      </template>
+      <template v-if="!registerVisible"> 登录 </template>
 
       <!-- 注册 -->
-      <template v-else>
-        <el-form :model="form" :rules="rules" ref="formRef">
-          <el-form-item prop="account">
-            <el-input placeholder="账号" v-model="form.account" />
-          </el-form-item>
-
-          <el-form-item prop="password">
-            <el-input placeholder="密码" v-model="form.password" type="password" />
-          </el-form-item>
-
-          <el-form-item prop="confirmPassword">
-            <el-input placeholder="确认密码" v-model="form.confirmPassword" type="password" />
-          </el-form-item>
-        </el-form>
-        <el-button type="text" @click="registerVisible = false">返回登录</el-button>
-        <el-button style="width: 100%; margin: 0;" type="primary" @click="registerSubmit">注册并登录</el-button>
-      </template>
+      <template v-else> 注册 </template>
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { FormRulesMap } from 'element-plus/es/components/form/src/form.type'
 import { reactive, ref } from 'vue'
 import { login, register } from '@/apis/common'
 import { router } from '@/router'
@@ -57,33 +28,15 @@ const form = reactive({
 
 const formRef = ref<any>(null)
 
-const rules: FormRulesMap = {
-  account: [{ required: true }],
-  password: [
-    { required: true },
-  ],
-  confirmPassword: [
-    { required: true },
-    {
-      validator: (_, v, cb) => {
-        if (v !== form.password) {
-          cb('两次密码不一致')
-        } else {
-          cb()
-        }
-      }
-    }
-  ]
-}
-
 const loginSubmit = async () => {
-  await formRef.value.validate()
+  await formRef.validate()
+
   const { data } = await login(omit(form, ['confirmPassword']))
-  router.replace('/home')
+  router.replace('/workspace')
 }
 
 const registerSubmit = async () => {
-  await formRef.value.validate()
+  await formRef.validate()
   const { data } = await register(omit(form, ['confirmPassword']))
   loginSubmit()
 }
@@ -101,7 +54,7 @@ const registerSubmit = async () => {
 .login-page {
   height: 100%;
   padding: 1px;
-  background-image: linear-gradient(0deg,#b721ff, #21d4fd);
+  background-image: linear-gradient(0deg, #b721ff, #21d4fd);
 }
 
 .login-title {

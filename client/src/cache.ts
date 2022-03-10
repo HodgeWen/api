@@ -1,7 +1,7 @@
-import Cache from 'ts-web-cache'
+import { cacheKey, WebCache } from 'fe-dk'
 
-export const local = Cache.create('local')
+export const local = WebCache.create('local')
 
-export const session = Cache.create('session')
+export const session = WebCache.create('session')
 
-export const TOKEN = 'TOKEN'
+export const TOKEN = cacheKey<string>('TOKEN')

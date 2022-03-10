@@ -7,6 +7,6 @@ export const router = createRouter({
   history: createWebHistory()
 })
 
-guard(router)
+// guard(router)
 
 

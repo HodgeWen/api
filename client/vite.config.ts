@@ -3,7 +3,7 @@ import { defineConfig, UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue' // 单文件组件支持
 import vueJsx from '@vitejs/plugin-vue-jsx' // TSX和JSX支持
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { QuasarResolver } from 'unplugin-vue-components/resolvers'
 
 /** 开发环境配置 */
 const serveConfig: UserConfigExport = {}
@@ -21,7 +21,7 @@ export default defineConfig(context => {
       }),
       vueJsx(),
       Components({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [QuasarResolver()]
       })
     ],
 
