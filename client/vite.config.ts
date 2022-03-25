@@ -15,13 +15,16 @@ export default defineConfig(context => {
   const { command, mode } = context
 
   const commonConfig: UserConfigExport = {
+    base: mode === "desktop" ? './' : '/',
+
     plugins: [
       vue({
         reactivityTransform: true
       }),
       vueJsx(),
       Components({
-        resolvers: [QuasarResolver()]
+        resolvers: [QuasarResolver()],
+        dts: false
       })
     ],
 

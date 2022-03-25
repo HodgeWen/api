@@ -6,7 +6,7 @@ function createWindow () {
     width: 800,
     height: 600
   })
-
+  // win.loadURL('http://localhost:2000')
   win.loadFile(path.resolve(__dirname, '../../client/dist/index.html'))
 }
 

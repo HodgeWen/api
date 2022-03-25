@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
 import guard from './guard'
 
 export const router = createRouter({
   routes,
-  history: createWebHistory()
+  history: ENV === "desktop" ? createWebHashHistory() : createWebHistory()
 })
 
 // guard(router)
