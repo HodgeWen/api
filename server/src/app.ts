@@ -8,7 +8,7 @@ const start = async () => {
     logger: true
   })
 
-  await fa.register(db) // 注册数据库
+  // await fa.register(db) // 注册数据库
 
   await fa.register(modules) // 注册所有的模块
 
