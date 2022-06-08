@@ -15,7 +15,8 @@
     "fastify-plugin": "^3.0.1",
     "mongodb": "^4.3.1",
     "redis": "^4.0.2",
-    "bcrypt": "^5.0.1"
+    "bcrypt": "^5.0.1",
+    "prisma": "^3.15.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
